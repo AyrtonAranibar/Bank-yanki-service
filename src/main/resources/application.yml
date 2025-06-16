@@ -1,0 +1,25 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: yanki-service
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/yanki-database
+
+  redis:
+    host: localhost
+    port: 6379
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+logging:
+  level:
+    root: INFO
+    org.springframework.kafka: DEBUG
+
+config:
+  import: optional:configserver:http://localhost:8888
