@@ -30,7 +30,7 @@ public class YankiWalletController {
         return service.getAllWallets();
     }
 
-    // ✅ Enviar dinero de un celular a otro
+    // Enviar dinero de un celular a otro
     @PostMapping("/transfer")
     public Mono<ResponseEntity<String>> transfer(@RequestBody TransferRequest request) {
         return service.transfer(request)
@@ -38,7 +38,7 @@ public class YankiWalletController {
                 .onErrorResume(error -> Mono.just(ResponseEntity.badRequest().body(error.getMessage())));
     }
 
-    // ✅ Asociar una tarjeta de débito
+    // Asociar una tarjeta de débito
     @PutMapping("/{phone}/link-card")
     public Mono<ResponseEntity<YankiWalletDto>> linkCard(@PathVariable String phone, @RequestBody LinkCardRequest request) {
         return service.linkCard(phone, request.getCardNumber())
