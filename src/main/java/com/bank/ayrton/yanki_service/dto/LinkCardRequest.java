@@ -5,4 +5,5 @@ import lombok.Data;
 @Data
 public class LinkCardRequest {
     private String cardNumber;
+    private String phoneNumber;
 }

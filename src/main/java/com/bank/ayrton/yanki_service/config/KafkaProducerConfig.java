@@ -1,7 +1,7 @@
 package com.bank.ayrton.yanki_service.config;
 
 import com.bank.ayrton.yanki_service.dto.YankiMovementEvent;
-import com.fasterxml.jackson.databind.ser.std.StringSerializer;
+import org.apache.kafka.common.serialization.StringSerializer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
