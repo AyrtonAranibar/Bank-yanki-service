@@ -80,6 +80,18 @@ public class YankiWalletServiceImpl implements YankiWalletService {
                 });
     }
 
+    @Override
+    public Mono<YankiWalletDto> findById(String id) {
+        return repository.findById(id)
+                .map(this::toDto);
+    }
+
+    @Override
+    public Mono<YankiWalletDto> findByCardNumber(String cardNumber) {
+        return repository.findByCardNumber(cardNumber)
+                .map(this::toDto);
+    }
+
     private YankiWallet toEntity(YankiWalletDto dto) {
         YankiWallet wallet = new YankiWallet();
         wallet.setDocumentType(dto.getDocumentType());

@@ -18,6 +18,20 @@ public class YankiWalletController {
 
     private final YankiWalletService service;
 
+    @GetMapping("/{id}")
+    public Mono<ResponseEntity<YankiWalletDto>> getById(@PathVariable String id) {
+        return service.findById(id)
+                .map(ResponseEntity::ok)
+                .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+    }
+
+    @GetMapping("/card/{cardNumber}")
+    public Mono<ResponseEntity<YankiWalletDto>> getByCardNumber(@PathVariable String cardNumber) {
+        return service.findByCardNumber(cardNumber)
+                .map(ResponseEntity::ok)
+                .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+    }
+
     @PostMapping
     public Mono<ResponseEntity<YankiWalletDto>> create(@RequestBody YankiWalletDto dto) {
         return service.createWallet(dto)

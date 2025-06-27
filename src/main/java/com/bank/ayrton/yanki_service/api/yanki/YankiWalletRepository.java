@@ -8,4 +8,5 @@ public interface YankiWalletRepository extends ReactiveMongoRepository<YankiWall
     Mono<YankiWallet> findByPhoneNumber(String phoneNumber);
     Mono<YankiWallet> findByDocumentNumber(String documentNumber);
     Mono<YankiWallet> findByEmail(String email);
+    Mono<YankiWallet> findByCardNumber(String cardNumber);
 }
